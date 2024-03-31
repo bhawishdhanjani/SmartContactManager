@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" th:replace="normal/base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>About Page</title>
+</head>
+<body>
+	<section>
+		<div class="card me-3">
+			<div class="card-body my-3">
+				<div class="container text-center">
+					<img style="width: 250px; height: 250px;" class="my_profile_picture" th:src="@{/images/logo.png}" alt="" />
+					<h1>Start Adding Your Contact on Cloud..</h1>
+					<div class="d-grid gap-2">
+						<a th:href="@{/user/add-contact}" type="button" class=" mt-2 btn btn-block btn-primary">Add new Contact</a>
+					</div>
+				
+				</div>
+				
+			</div>
+		</div>
+		
+		
+		
+		
+		
+	</section>
+	
+</body>
+</html>

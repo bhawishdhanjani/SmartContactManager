@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" th:replace="normal/base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>About Page</title>
+</head>
+<body>
+	<section>
+		<div class="card me-3 mb-2">
+			<div class="card-body">
+				<div class="container text-center">
+					<img style="width: 250px; height: 250px;" class="my_profile_picture" th:src="@{'/images/'+${contact.image}}" alt="" />
+					<h3 th:text="${contact.name}+' '+${contact.secondName}"></h3>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">#ID</th>
+								<th scope="col"><span th:text="${contact.cId}"></span></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="col">Work</th>
+								<th scope="col"><span th:text="${contact.work}"></span></th>
+							</tr>
+							<tr>
+								<th scope="col">Email</th>
+								<th scope="col"><span th:text="${contact.email}"></span></th>
+							</tr>
+							<tr>
+								<th scope="col">Phone</th>
+								<th scope="col"><span th:text="${contact.phone}"></span></th>
+							</tr>
+						</tbody>
+					</table>
+					<div>
+						<th:block th:utext="${contact.description}"></th:block>
+					</div>
+					<div class="container mt-2">
+						<button th:onclick="|deleteContact(${contact.cId})|" class="btn btn-danger btn-sm">Delete</button>
+								<form style="display: inline;" method="post" th:action="@{'/user/update-contact/'+${contact.cId}}">
+										<button type="submit" class="btn btn-primary btn-sm">Update</button>
+									</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+</body>
+
+</html>

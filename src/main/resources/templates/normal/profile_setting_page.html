@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" th:replace="normal/base::layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>About Page</title>
+</head>
+
+<body>
+	<section>
+		<div class="card me-3 my-3">
+			<div class="card-body ">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 offset-md-2">
+							<div class="my-card mt-2">
+								<div class="container mb-4"><h1 class="text-center">Update Your Detail</h1></div>
+								<form novalidate th:action="@{/user/profile-setting-process}" method="post" th:object="${user}">
+									<div class="mb-2">
+										<label for="name_field" class="form-label">Your Name</label>
+										<input name="name" th:value="${user.name}" type="text" class="form-control"
+											placeholder="Enter Here" id="name_field"
+											th:classappend="${#fields.hasErrors('name')?'is-invalid':''}">
+										<div id="validationServer03Feedback" class="invalid-feedback"
+											th:each="error : ${#fields.errors('name')}" th:text="${error}">
+
+										</div>
+									</div>
+								
+										<div class="mb-2">
+											<label for="password_field" class="form-label">Enter New Password</label>
+											<input name="password" placeholder="Enter Here"
+												 type="password"  class="form-control" id="password_field"
+												th:classappend="${#fields.hasErrors('password')?'is-invalid':''}">
+											<div id="validationServer03Feedback" class="invalid-feedback"
+												th:each="error : ${#fields.errors('password')}" th:text="${error}">
+											</div>
+											</div>
+											<div class="mb-2 mt-2">
+												<textarea id="" class="form-control" rows="6" name="about"
+													th:text="${user.about}"
+													placeholder="Enter something about yourself"></textarea>
+
+											</div>
+											<div class="container text-center">
+												<button class="btn bg-primary text-white" type="submit">Update</button>
+											</div>
+								</form>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+
+
+
+
+	</section>
+
+</body>
+
+</html>
